@@ -9,6 +9,8 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,17 +21,31 @@ public class Conexion {
     public Connection conectar(){
    
         try{
+//          Driver e infromacion de la conexion
             Class.forName("com.mysql.jdbc.Driver");
             conectar=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/ethazi4","root","");
             System.out.println("Conexion establecida");
 
+            }catch(SQLException ex){
+//          Controlar errores de conexion usuario,  nombreBD, contraseña ...
+            JOptionPane.showMessageDialog(null,"Error " + ex.getErrorCode() + ": " + ex.getMessage());
+            }catch(ClassNotFoundException ex){
+//          Controlar error de driver
+            JOptionPane.showMessageDialog(null,"No se encontro el Driver MySQL para JDBC.");
             }
+//            }finally{
+////          Desconectar siempre la conexion
+//                try{
+//                   if(conectar!=null)
+//                      conectar.close();
+//                }catch(SQLException se){
+//                   se.printStackTrace();
+//            }//final de finally
+//         }
         
-        catch(Exception e){
-            System.out.println("Error");
-            System.out.println(e.getMessage());
-        }
-        return conectar;
-    }
- 
+            System.out.println("Conexion cerrada");  
+            return conectar;
+          }
 }
+
+

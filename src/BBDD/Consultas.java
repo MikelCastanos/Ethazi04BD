@@ -27,8 +27,10 @@ public class Consultas {
         }catch (Exception e){
            System.out.println(e.getMessage());
         }
+        
         return rs;
     }
+    
     
     
     public boolean insertarDatosBD(Connection con, String query){
@@ -36,15 +38,16 @@ public class Consultas {
        try{
            st=con.createStatement();
        }catch(SQLException e){
-           System.out.println("Insertar 1: "+e.getMessage());
+           System.out.println(e.getMessage());
            return false;
        }
        try{
            st.executeUpdate(query);
        }catch(Exception e){
-           System.out.println("Insertar 2: "+e.getMessage());
+           System.out.println(e.getMessage());
            return false;
        }
+       System.out.println("Datos insertados correctamente ");
        return true;
     }
 }
