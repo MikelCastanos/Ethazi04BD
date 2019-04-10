@@ -29,6 +29,7 @@ public class Conexion {
             }catch(SQLException ex){
 //          Controlar errores de conexion usuario,  nombreBD, contraseña ...
             JOptionPane.showMessageDialog(null,"Error " + ex.getErrorCode() + ": " + ex.getMessage());
+            
             }catch(ClassNotFoundException ex){
 //          Controlar error de driver
             JOptionPane.showMessageDialog(null,"No se encontro el Driver MySQL para JDBC.");
@@ -43,9 +44,21 @@ public class Conexion {
 //            }//final de finally
 //         }
         
-            System.out.println("Conexion cerrada");  
+            
             return conectar;
           }
+    
+    public Connection desconectar(){
+        try{
+            if(conectar!=null)
+            conectar.close();
+            System.out.println("Conexion cerrada"); 
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//final de finally
+         
+        return conectar;
+    }
 }
 
 

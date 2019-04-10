@@ -27,7 +27,8 @@ public class Consultas {
         }catch (Exception e){
            System.out.println(e.getMessage());
         }
-        
+        Conexion conn= new Conexion();
+        conn.desconectar();   
         return rs;
     }
     
@@ -48,6 +49,8 @@ public class Consultas {
            return false;
        }
        System.out.println("Datos insertados correctamente ");
+       Conexion conn= new Conexion();
+       conn.desconectar();   
        return true;
     }
 }
