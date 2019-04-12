@@ -34,15 +34,6 @@ public class Conexion {
 //          Controlar error de driver
             JOptionPane.showMessageDialog(null,"No se encontro el Driver MySQL para JDBC.");
             }
-//            }finally{
-////          Desconectar siempre la conexion
-//                try{
-//                   if(conectar!=null)
-//                      conectar.close();
-//                }catch(SQLException se){
-//                   se.printStackTrace();
-//            }//final de finally
-//         }
         
             
             return conectar;
