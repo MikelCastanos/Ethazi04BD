@@ -55,7 +55,24 @@ public class Consultas {
     }
     
     
-        
+public boolean boleano(Connection con, String query){
+       Statement st;
+       try{
+           st=con.createStatement();
+       }catch(SQLException e){
+           System.out.println(e.getMessage());
+           System.out.println("Insertar 1: "+e.getMessage());
+           return false;
+       }
+       try{
+           st.execute(query);
+       }catch(Exception e){
+           System.out.println(e.getMessage());
+           System.out.println("Insertar 2: "+e.getMessage());
+           return false;
+       }
+       return true;
+    }
 
         
 
