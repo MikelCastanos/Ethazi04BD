@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  * @author ikasleaETHAZI
  */
 public class Consultas {
-    
+
 //    Metodo consulta recibe connexio  y la consulta=query
     public ResultSet consultaBD(Connection con, String query){
         ResultSet rs=null;
         try{
-            
+
             Statement st= con.createStatement();
             rs= st.executeQuery(query);
             
