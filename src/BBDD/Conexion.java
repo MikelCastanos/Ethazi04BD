@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package BBDD;
 
 import com.mysql.jdbc.Connection;
@@ -28,12 +23,23 @@ public class Conexion {
 
             }catch(SQLException ex){
 //          Controlar errores de conexion usuario,  nombreBD, contraseña ...
-            JOptionPane.showMessageDialog(null,"Error " + ex.getErrorCode() + ": " + ex.getMessage());
+            JOptionPane.showMessageDialog(null,"¡Error!"
+                    + "\n No se puede continuar debido a que no hay conexión con la BBDD. Espere un momento o vuelva a intentarlo más adelante."
+                    +"\n Disculpe las molestias causadas.");
             
             }catch(ClassNotFoundException ex){
 //          Controlar error de driver
             JOptionPane.showMessageDialog(null,"No se encontro el Driver MySQL para JDBC.");
             }
+//            }finally{
+////          Desconectar siempre la conexion
+//                try{
+//                   if(conectar!=null)
+//                      conectar.close();
+//                }catch(SQLException se){
+//                   se.printStackTrace();
+//            }//final de finally
+//         }
         
             
             return conectar;
@@ -51,5 +57,3 @@ public class Conexion {
         return conectar;
     }
 }
-
-
