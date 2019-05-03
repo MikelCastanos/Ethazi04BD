@@ -28,7 +28,9 @@ public class Conexion {
 
             }catch(SQLException ex){
 //          Controlar errores de conexion usuario,  nombreBD, contraseña ...
-            JOptionPane.showMessageDialog(null,"Error " + ex.getErrorCode() + ": " + ex.getMessage());
+            JOptionPane.showMessageDialog(null,"¡Error!"
+                    + "\n No se puede continuar debido a que no hay conexión con la BBDD. Espere un momento o vuelva a intentarlo más adelante."
+                    +"\n Disculpe las molestias causadas.");
             
             }catch(ClassNotFoundException ex){
 //          Controlar error de driver
