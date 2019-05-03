@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author ikasleaETHAZI
  */
 public class Conexion {
-    Connection conectar = null;
+    static Connection conectar = null;
     public Connection conectar(){
    
         try{

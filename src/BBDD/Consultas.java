@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  * @author ikasleaETHAZI
  */
 public class Consultas {
-
+    
 //    Metodo consulta recibe connexio  y la consulta=query
-    public ResultSet consultaBD(Connection con, String query){
+    public ResultSet consultaBD(String query){
         ResultSet rs=null;
         try{
 
-            Statement st= con.createStatement();
+            Statement st= Conexion.conectar.createStatement();
             rs= st.executeQuery(query);
             
         }catch (Exception e){
@@ -35,10 +35,10 @@ public class Consultas {
     
     
     
-    public boolean insertarDatosBD(Connection con, String query){
+    public boolean insertarDatosBD(String query){
        Statement st;
        try{
-           st=con.createStatement();
+           st=Conexion.conectar.createStatement();
        }catch(SQLException e){
            System.out.println(e.getMessage());
            return false;
@@ -55,10 +55,10 @@ public class Consultas {
     }
     
     
-public boolean boleano(Connection con, String query){
+public boolean boleano(String query){
        Statement st;
        try{
-           st=con.createStatement();
+           st=Conexion.conectar.createStatement();
        }catch(SQLException e){
            System.out.println(e.getMessage());
            System.out.println("Insertar 1: "+e.getMessage());
