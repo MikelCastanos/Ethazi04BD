@@ -72,6 +72,25 @@ public class Consultas {
 
        
     }
+        
+       public void borrarBD(String query){
+       Statement st = null;
+       try{
+           st=Conexion.conectar.createStatement();
+       }catch(SQLException e){
+           System.out.println(e.getMessage());
+           
+       }
+       try{
+           st.executeUpdate(query);
+       }catch(Exception e){
+           System.out.println(e.getMessage());
+           
+       }
+       System.out.println("Datos eliminados correctamente ");
+
+       
+    }
     
     
 public boolean boleano(String query){
