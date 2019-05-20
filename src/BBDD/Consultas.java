@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Consultas {
     
-//    Metodo consulta recibe connexio  y la consulta=query
+//    Metodo consulta consulta=query
     public ResultSet consultaBD(String query){
         ResultSet rs=null;
         try{
@@ -54,7 +54,7 @@ public class Consultas {
        return true;
     }
     
-        public void actualizarBD(String query){
+    public void actualizarBD(String query){
        Statement st = null;
        try{
            st=Conexion.conectar.createStatement();
@@ -88,31 +88,7 @@ public class Consultas {
            
        }
        System.out.println("Datos eliminados correctamente ");
-
-       
     }
-    
-    
-public boolean boleano(String query){
-       Statement st;
-       try{
-           st=Conexion.conectar.createStatement();
-       }catch(SQLException e){
-           System.out.println(e.getMessage());
-           System.out.println("Insertar 1: "+e.getMessage());
-           return false;
-       }
-       try{
-           st.execute(query);
-       }catch(Exception e){
-           System.out.println(e.getMessage());
-           System.out.println("Insertar 2: "+e.getMessage());
-           return false;
-       }
-       return true;
-    }
-
-        
 
     }
 
