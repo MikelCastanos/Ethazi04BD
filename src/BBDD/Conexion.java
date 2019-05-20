@@ -41,7 +41,7 @@ public class Conexion {
             System.out.println("Conexion cerrada"); 
             }catch(SQLException se){
                 se.printStackTrace();
-            }//final de finally
+            }
          
         return conectar;
     }
